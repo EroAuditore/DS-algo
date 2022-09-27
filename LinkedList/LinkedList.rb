@@ -28,6 +28,10 @@ class LinkedList
       i = 0
       currentNode = @head
       previousNode = @head
+      if index == 0
+        prepend(value)
+        return
+      end
       while !currentNode.nil?
         if index == i
           newNode = Node.new(value)
@@ -35,11 +39,11 @@ class LinkedList
           previousNode.next = newNode
           break
         end
-        i += 1
-        currentNode = currentNode.next 
+        i += 1 
         previousNode = currentNode
-      end
-    end
+        currentNode = currentNode.next
+    ßend
+      
     def to_s
       currentNode = @head
       arr = []
@@ -57,5 +61,5 @@ list.append(15)
 list.append(20)
 list.prepend(5)
 list.append(1)
-list.insert(1, 7)
+list.insert(3, 7)
 list.to_s
