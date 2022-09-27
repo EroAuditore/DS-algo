@@ -42,7 +42,7 @@ class LinkedList
         i += 1 
         previousNode = currentNode
         currentNode = currentNode.next
-    ßend
+    end
       
     def to_s
       currentNode = @head
