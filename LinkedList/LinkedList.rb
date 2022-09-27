@@ -19,15 +19,43 @@ class LinkedList
       @tail.next = newNode
       @tail = newNode
     end
-    def preppend(value)
+    def prepend(value)
       newNode = Node.new(value)
       newNode.next = @head
       @head = newNode 
     end
+    def insert(index, value)
+      i = 0
+      currentNode = @head
+      previousNode = @head
+      while !currentNode.nil?
+        if index == i
+          newNode = Node.new(value)
+          newNode.next = currentNode
+          previousNode.next = newNode
+          break
+        end
+        i += 1
+        currentNode = currentNode.next 
+        previousNode = currentNode
+      end
+    end
+    def to_s
+      currentNode = @head
+      arr = []
+      while !currentNode.nil?
+        arr << currentNode.value
+        currentNode = currentNode.next
+      end
+      puts arr.join(" ,")
+    end
+    
 end
 
 list = LinkedList.new(10)
 list.append(15)
 list.append(20)
-list.preppend(5)
+list.prepend(5)
 list.append(1)
+list.insert(1, 7)
+list.to_s
