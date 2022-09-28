@@ -69,6 +69,23 @@ class LinkedList
       puts arr.join(" ,")
     end
     
+    def reverse      
+      if @head.next.nil?
+        return @head
+      end
+      @tail = @head
+      first = @head
+      second = @head.next
+      while !second.nil?
+        aux = second.next
+        second.next = first
+        first = second
+        second = aux
+        
+      end   
+      @head.next = nil
+      @head = first
+    end
 end
 
 list = LinkedList.new(10)
@@ -80,3 +97,11 @@ list.insert(3, 7)
 list.to_s
 list.remove(1)
 list.to_s
+
+listReverse = LinkedList.new(1)
+listReverse.append(2)
+listReverse.append(3)
+listReverse.append(4)
+listReverse.to_s
+listReverse.reverse
+listReverse.to_s
